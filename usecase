@@ -1,0 +1,67 @@
+@startuml
+
+left to right direction
+
+actor user 
+actor reader
+actor author
+actor admin 
+
+author--|>reader
+reader--|>user
+admin--|>user
+
+package "blog system"{
+
+usecase "s'inscrire" as auth
+usecase "se connecter" as signin
+usecase "se deconnecter" as logout
+usecase "gestion des categories" as gestionc
+usecase "lire les blogs" as read 
+usecase "gestion des articles" as gestionb
+usecase "lire les article" as read 
+usecase "authentification" as login
+usecase "liker les blogs" as like 
+usecase "commenter des blogs " as comment  
+usecase "ajouter les articles" as add
+usecase "modifier les articles" as modify
+usecase "suprimer les articles" as delete
+usecase "ajouter une categorie" as addc
+usecase "modifier une categorie" as modifyc
+usecase "suprimer une categorie" as deletc 
+
+    read ..>like : <<extend>>
+    read ..>comment :<<extend>>
+
+    gestionb ..>add : <<extend>>
+    gestionb ..>modify : <<extend>>                         
+    gestionb ..>delete : <<extend>>
+ 
+    gestionc ..>addc : <<extend>>
+    gestionc ..>modifyc : <<extend>>
+    gestionc ..>deletc : <<extend>>
+
+    logout ..> login : <<include>>
+    read ..> login : <<include>>
+    like ..> login : <<include>>
+    comment ..> login : <<include>>
+    add ..> login : <<include>>
+    modify ..> login : <<include>>
+    delete ..> login : <<include>>
+    addc ..>login: <<include>>
+    modifyc ..>login :<<include>>
+    deletc ..>login : <<include>>
+    gestionb ..>login : <<include>>
+    gestionc ..>login : <<include>>
+
+}
+user-->signin
+user-->logout
+user-->auth
+
+reader-->read
+
+author-->gestionb
+
+admin-->gestionc
+@enduml
