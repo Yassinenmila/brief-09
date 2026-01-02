@@ -47,21 +47,32 @@ class Article {
 
 }
 
-class Interaction {
+class Like {
 
 - id_article
 - id_reader
-- date_action    
-+ like()
-+ comment()
+- date_action 
++ like()   
 }
 
+class Comment {
+
+- id_article
+- id_reader
+- comment 
+- date_action 
++ comment()   
+}
 
 Article "1"-->"0..*"Author : ecrire
-Reader "0..*" --> "0..*" Interaction
-Article "0..*" --> "0..*" Interaction
-Author"0..*" --> "0..*" Interaction
-Article "0..*" --> "0..*" Interaction
+Reader "0..*" --> "0..*" Like
+Article "0..*" --> "0..*" Like
+Author"0..*" --> "0..*" Like
+
+
+Reader "0..*" --> "0..*" Comment
+Article "0..*" --> "0..*" Comment
+Author"0..*" --> "0..*" Comment
 
 
 
