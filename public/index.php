@@ -1,12 +1,15 @@
 <?php
 require_once __DIR__ . '/../app/core/Autoload.php';
 
-Autoload::register();
+use App\Core\Router;
 
-use router; 
+session_start();
 
-$router =new Router();
-// $router->dispatch();
+$router=new Router();
+
+$router->get('/','home@index');
+
+$router->dispatch();
 
 
 
