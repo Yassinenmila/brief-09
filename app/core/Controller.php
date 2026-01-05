@@ -9,7 +9,7 @@ class Controller
         extract($data);
 
         $viewFile = __DIR__ . '/../Views/pages/' . $view . '.php';
-        $layoutFile = __DIR__ . '/../Views/layouts/main.php';
+        $layoutFile = __DIR__ . '/../Views/layout/main.php';
 
         if (!file_exists($viewFile)) {
             throw new \Exception("View $view not found");
