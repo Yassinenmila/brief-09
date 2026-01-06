@@ -6,9 +6,11 @@ error_reporting(E_ALL);
 
 require_once __DIR__ . '/../app/core/Autoload.php';
 
+use core\Data;
 use core\Router;
-
 session_start();
+
+Data::connect();
 
 $router=new Router();
 
