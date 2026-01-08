@@ -9,7 +9,7 @@ class Profil extends Controller{
         
 
 
-        $this->view('home.views');
+        $this->view('profil.views');
     }
 }
 

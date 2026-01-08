@@ -1,5 +1,5 @@
 <?php
-// Afficher les erreurs pour débogage
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -10,13 +10,19 @@ use core\Data;
 use core\Router;
 session_start();
 
-Data::connect();
-
 $router=new Router();
+if(isset($_SESSION['user'])){
+    $router->get('/','home@index');
+    $router->get('/home','home@index');
+    $router->get('/profil','profil@index');
+}else {
+    $router->get('/signup','signup@index');
+    $router->get('/login','login@index');
+    $router->post('/login','login@login');
+    $router->post('/signup','signup@signup');
+}
 
-$router->get('/','home@index');
 
 $router->dispatch();
-
 
 
