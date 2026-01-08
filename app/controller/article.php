@@ -2,10 +2,10 @@
 
 namespace app\Controller;
 use app\core\Controller;
-class Profil extends Controller{
+class Article extends Controller{
 
     public function index(){
-        $this->view('profil.views');
+        $this->view('article.views');
     }
 }
 

@@ -8,10 +8,6 @@ class Signup extends Controller{
     private $db;
 
     public function index(){
-
-        
-
-
         $this->view('signup.views');
     }
 
@@ -26,10 +22,6 @@ class Signup extends Controller{
             $pass=$_POST['passwd'] ?? '';
             $conf=$_POST['pswd_conf'] ?? '';
 
-            print $email."1 <br>";
-            print $name."2 <br>";
-            print $pass."3 <br>";
-            print $conf."4 <br>";
             if(!$email || !$name || !$pass || !$conf){
                 echo "veiller remplir les champs !!!";
                 return;

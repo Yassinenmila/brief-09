@@ -24,7 +24,13 @@
                 </ul>
                 <div class="hidden md:flex items-center space-x-3">
                         <span class="text-gray-700 font-medium">👤 <?= htmlspecialchars($_SESSION['user']['name']) ?></span>
-                        <a href="/profil" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">profil</a>
+                        <?php if($_SESSION['user']['role']==="reader"): ?>
+                            <a href="/profil" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">profil</a>
+                        <?php elseif($_SESSION['user']['role']==="author"):  ?>
+                            <a href="/author" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">profil</a>
+                        <?php else : ?>                                                        
+                            <a href="/admin" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Dashboard</a>
+                        <?php endif; ?> 
                         <a href="/logout" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">Déconnexion</a>
                 </div>
             </nav>

@@ -12,9 +12,13 @@ session_start();
 
 $router=new Router();
 if(isset($_SESSION['user'])){
+
     $router->get('/','home@index');
     $router->get('/home','home@index');
     $router->get('/profil','profil@index');
+    $router->get('/author','author@index');
+    $router->get('/article','article@index');
+    
 }else {
     $router->get('/signup','signup@index');
     $router->get('/login','login@index');
