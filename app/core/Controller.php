@@ -4,7 +4,7 @@ namespace app\core;
 class Controller
 {
 
-    protected function view(string $view, array $data = [])
+    protected function view(string $view, array $data=[])
     {
         extract($data);
 

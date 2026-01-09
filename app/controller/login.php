@@ -9,10 +9,6 @@ class Login extends Controller{
     private $db;
 
     public function index(){
-        
-        
-
-
         $this->view('login.views');
     }
     
@@ -44,7 +40,7 @@ class Login extends Controller{
                 header("Location:/home");
                 exit;
             }else if($_SESSION['user']['role']=== "author"){
-                header("Location:/profil");
+                header("Location:/author");
                 exit;
             }else if($_SESSION['user']['role']=== "admin"){
                 header("Location:/dashboard");
