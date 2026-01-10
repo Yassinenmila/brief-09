@@ -20,7 +20,7 @@
                         <span>💬 <b><?= $a['total_comments'] ?></b></span>
                     </div>
                     <form action="/detaille" method="POST">
-                        <input type="hidden" value="<?= $a['article_id'] ?>" >
+                        <input name="id" type="hidden" value="<?= $a['article_id'] ?>" >
                         <button type="submit">lire plus</button>
                     </form>
                 </div>

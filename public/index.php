@@ -20,7 +20,9 @@ if(isset($_SESSION['user'])){
     $router->get('/author','author@index');
     $router->get('/article','article@index');
     $router->post('/article','article@add');
-    $router->get('/detaille','detaille@index');
+    $router->post('/detaille','detaille@index');
+    $router->get('/logout','logout@index');
+    $router->post('/detaille','detaille@add_com');
     
 }else {
     $router->get('/signup','signup@index');
