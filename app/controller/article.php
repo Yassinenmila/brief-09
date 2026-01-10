@@ -31,12 +31,14 @@ class Article extends Controller{
                 ':contenu'=>$text,
                 ':id_author'=>$id_author
             ]);
+            
+            $id_article = $this->db->lastInsertId();
 
             $stmt=$this->db->prepare("INSERT INTO art_type (id_article,id_categorie) VALUES (:id_a,:id_c)");
-            foreach($categorie as $c){
+            foreach($categories as $c){
                 $stmt->execute([
-                    ':id_a'=>$id_author,
-                    'id_c'=>$c
+                    ':id_a'=>$id_article,
+                    ':id_c'=>$c
                 ]);
             }
             header("Location:/author");
