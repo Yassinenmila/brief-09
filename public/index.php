@@ -22,8 +22,8 @@ if(isset($_SESSION['user'])){
     $router->post('/article','article@add');
     $router->post('/detaille','detaille@index');
     $router->get('/logout','logout@index');
-    $router->post('/detaille','detaille@add_com');
-    
+    $router->post('/comment','comment@index');
+    $router->post('/like','like@index');    
 }else {
     $router->get('/signup','signup@index');
     $router->get('/login','login@index');

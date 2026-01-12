@@ -25,16 +25,16 @@ class Detaille extends Controller{
         ]);
         $data=$stmt->fetch();
 
-        $stmt=$this->db->prepare("SELECT COUNT(id_user)as total_likes FROM likes WHERE id_article=:id GROUP BY id_article");
+        $stmt=$this->db->prepare("SELECT COUNT(*)as total_likes FROM likes WHERE id_article=:id ");
         $stmt->execute([
             ':id'=>$id
         ]);
 
-        $total_likes = $stmt->fetch();
+        $total_likes = $stmt->fetchColumn();
 
         $stmt=$this->db->prepare("SELECT 
         c.comment AS comment,
-        c.date_comment,
+        TO_CHAR(c.date_comment, 'YYYY-MM-DD HH24:MI') AS date_comment,
         u.name AS owner
         FROM comments c
         JOIN users u ON c.id_user = u.id
@@ -53,19 +53,6 @@ class Detaille extends Controller{
             'comments'=>$comments,
             'id'=>$id
         ]);
-    }
-
-    public function add_com(){
-
-        $this->db=Data::connect();
-
-        $article_id=$_POST['id'];
-        $user_id=$_SESSION['user']['id'];
-        
-        
-
-
-
     }
 }
 
